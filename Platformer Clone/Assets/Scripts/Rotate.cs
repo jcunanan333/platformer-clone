@@ -16,7 +16,7 @@ public class Rotate : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            transform.Rotate(Vector3.up * 90);
+            transform.Rotate(Vector3.up * 180);
         }
 
         if (Input.GetKey(KeyCode.W))
