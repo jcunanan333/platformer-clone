@@ -8,6 +8,8 @@ TagManager:
   - HealthPickup
   - JumpPickup
   - Portal
+  - RegularEnemy
+  - HardEnemy
   layers:
   - Default
   - TransparentFX
