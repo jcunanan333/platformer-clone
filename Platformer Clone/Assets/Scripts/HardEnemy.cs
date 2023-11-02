@@ -11,6 +11,8 @@ using UnityEngine;
 public class HardEnemy : MonoBehaviour
 {
     public int damageDealt = 7;
+    public float speed = 5f;
+    public int hitPoints = 10;
 
     // Start is called before the first frame update
     void Start()
