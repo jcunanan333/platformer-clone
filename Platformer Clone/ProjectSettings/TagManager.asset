@@ -10,6 +10,9 @@ TagManager:
   - Portal
   - RegularEnemy
   - HardEnemy
+  - SmallBullet
+  - BigBullet
+  - ExtraHealthPickup
   layers:
   - Default
   - TransparentFX

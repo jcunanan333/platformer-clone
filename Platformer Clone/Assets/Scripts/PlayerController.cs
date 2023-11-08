@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     //jump force added when the player presses space
     public float jumpForce = 2f;
 
-    private Rigidbody rigidbody;
+    private Rigidbody playerRigidbody;
 
     public bool goingLeft = true;
     public bool rotateLeft = false;
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
         startPos = transform.position;
 
         //set the reference to the player's attached rigidbody
-        rigidbody = GetComponent<Rigidbody>();
+        playerRigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -55,6 +55,28 @@ public class PlayerController : MonoBehaviour
 
         HandleJumping();
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "ExtraHealthPickup")
+        {
+            health = 199;
+            other.gameObject.SetActive(false);
+        }
+        if (other.gameObject.tag == "HealthPickup")
+        {
+            health += other.gameObject.GetComponent<HealthPickup>().healthRegained;
+            other.gameObject.SetActive(false);
+        }
+        if (other.gameObject.tag == "JumpPickup")
+        {
+            jumpForce *= 2;
+            other.gameObject.SetActive(false);
+        }
+    }
+
+
+
     private void Die()
     {
         //check if player has 0 health
@@ -78,7 +100,7 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("Touching the ground");
                 //adds an upwards velocity to the player object causing the player to jump
-                rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             }
             else
             {
