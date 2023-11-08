@@ -7,8 +7,8 @@ using TMPro;
 
 /*
  * Author: [Cunanan, Joshua]
- * Last Updated: [11/03/2023]
- * [This controls the game ui]
+ * Last Updated: [10/31/2023]
+ * [This controls the camera being locked onto the player]
  */
 
 public class GameUIManager : MonoBehaviour
