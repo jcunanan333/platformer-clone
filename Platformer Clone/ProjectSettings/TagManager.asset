@@ -13,6 +13,7 @@ TagManager:
   - ExtraHealthPickup
   - SmallBullet
   - HeavyBullet
+  - heavyWall
   layers:
   - Default
   - TransparentFX

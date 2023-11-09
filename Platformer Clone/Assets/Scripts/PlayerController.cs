@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -72,6 +73,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.tag == "Portal")
+        {
+            transform.position = other.GetComponent<Portal>().spawnPoint.transform.position;
+            startPos = other.GetComponent<Portal>().spawnPoint.transform.position;
+        }
         if (other.gameObject.tag == "ExtraHealthPickup")
         {
             health = 199;

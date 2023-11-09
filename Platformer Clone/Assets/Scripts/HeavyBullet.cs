@@ -30,5 +30,9 @@ public class HeavyBullet : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);
+        if (other.gameObject.tag == "heavyWall")
+        {
+            other.gameObject.SetActive(false);
+        }
     }
 }
