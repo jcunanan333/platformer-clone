@@ -482,10 +482,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 774731018718931975, guid: dca39414b6947224585bc00512d7aaa6, type: 3}
-      propertyPath: m_ProvidesContacts
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4035840294205286149, guid: dca39414b6947224585bc00512d7aaa6, type: 3}
       propertyPath: m_Name
       value: Samus

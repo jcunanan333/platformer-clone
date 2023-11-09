@@ -12,7 +12,6 @@ using UnityEngine;
 
 public class RegularEnemy : MonoBehaviour
 {
-    public int damageDealt = 5;
     public float speed = 3f;
     public int hitPoints = 1;
 
