@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Author: [Cunanan, Joshua / McGee, Patrick]
+ * Last Updated: [10/31/2023]
+ * [This controls the Heavy Bullet functions]
+ */
+
 public class HeavyBullet : MonoBehaviour
 {
     public float speed = 15f;

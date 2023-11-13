@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * Author: [McGee, Patrick]
+ * Author: [McGee, Patrick / Cunanan, Joshua]
  * Last Updated: [11/02/2023]
  * [This file contains the code that determines the behavior for HardEnemy objects.]
  */

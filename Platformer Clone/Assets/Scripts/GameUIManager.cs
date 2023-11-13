@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using TMPro;
 
 /*
- * Author: [Cunanan, Joshua]
+ * Author: [Cunanan, Joshua / McGee, Patrick]
  * Last Updated: [10/31/2023]
  * [This controls the camera being locked onto the player]
  */

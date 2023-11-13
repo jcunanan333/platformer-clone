@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * Author: [Cunanan, Joshua]
+ * Author: [Cunanan, Joshua / McGee, Patrick]
  * Last Updated: [10/31/2023]
  * [This controls the gun shooting]
  */

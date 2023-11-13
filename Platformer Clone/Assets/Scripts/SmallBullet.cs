@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Author: [Cunanan, Joshua / McGee, Patrick]
+ * Last Updated: [10/31/2023]
+ * [This controls the small bullet functions]
+ */
+
 public class SmallBullet : MonoBehaviour
 {
     public float speed = 15f;

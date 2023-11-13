@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+/*
+ * Author: [Cunanan, Joshua]
+ * Last Updated: [10/31/2023]
+ * [This controls Samus's Rotation Movement]
+ */
+
 public class Rotate : MonoBehaviour
 {
     // Start is called before the first frame update

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /*
- * Author: [Cunanan, Joshua]
+ * Author: [Cunanan, Joshua / McGee, Patrick]
  * Last Updated: [10/31/2023]
  * [This controls all the players movement and functions]
  */
