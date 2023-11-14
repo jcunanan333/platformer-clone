@@ -5,7 +5,7 @@ using UnityEngine;
 /*
  * Author: [Cunanan, Joshua / McGee, Patrick]
  * Last Updated: [10/31/2023]
- * [This controls the gun shooting]
+ * [This controls Samus's gun.]
  */
 
 public class BulletSpawner : MonoBehaviour

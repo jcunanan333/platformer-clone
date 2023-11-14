@@ -40,6 +40,9 @@ public class PlayerController : MonoBehaviour
     public GameObject heavyBullet;
     public GameObject bulletSource;
 
+    public int stage = 0;
+    public int finalEnemiesKilled = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,6 +72,7 @@ public class PlayerController : MonoBehaviour
 
         HandleJumping();
         HandleShooting();
+        CheckVictory();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -77,6 +81,7 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = other.GetComponent<Portal>().spawnPoint.transform.position;
             startPos = other.GetComponent<Portal>().spawnPoint.transform.position;
+            stage++;
         }
         if (other.gameObject.tag == "ExtraHealthPickup")
         {
@@ -106,8 +111,39 @@ public class PlayerController : MonoBehaviour
             isHeavyWeapon = true;
             other.gameObject.SetActive(false);
         }
+        if (other.gameObject.tag == "EnemyBullet")
+        {
+            HandleDamage(25);
+        }
     }
 
+    /// <summary>
+    /// Increases the number of enemies killed if on the final level.
+    /// </summary>
+    public void IncreaseFinalEnemiesKilled()
+    {
+        if (stage == 3)
+        {
+            finalEnemiesKilled++;
+        }
+        
+    }
+
+    /// <summary>
+    /// Checks to see if 8 enemies have been killed on the final level. This value is hard-coded to the number of enemies placed on the final level.
+    /// </summary>
+    private void CheckVictory()
+    {
+        if (finalEnemiesKilled >= 8)
+        {
+            SceneManager.LoadScene(3);
+        }
+    }
+
+    /// <summary>
+    /// Handles taking damage.
+    /// </summary>
+    /// <param name="damage">How much damage Samus should take.</param>
     private void HandleDamage(int damage)
     {
         if (!isInvuln)
@@ -126,6 +162,10 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// A coroutine that makes samus invulnerable and blink for 5 seconds.
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator Blink()
     {
         for (int index = 0; index < 10; index++)
@@ -144,7 +184,9 @@ public class PlayerController : MonoBehaviour
         playerBody.SetActive(true);
     }
 
-
+    /// <summary>
+    /// The code necessary to spawn bullets and point them in the right direction.
+    /// </summary>
     private void HandleShooting()
     {
         if (Input.GetKey(KeyCode.Return))
@@ -167,6 +209,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// A coroutine that puts the gun on cooldown after firing, preventing continuous firing.
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator ShootingCooldown()
     {
         gunOnCooldown = true;
@@ -174,6 +220,9 @@ public class PlayerController : MonoBehaviour
         gunOnCooldown = false;
     }
 
+    /// <summary>
+    /// Sends player to the GameOver scene when health is 0 or lower.
+    /// </summary>
     private void Die()
     {
         //check if player has 0 health
@@ -182,6 +231,10 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene(2);
         }
     }
+
+    /// <summary>
+    /// Handles input for jumping by checking a raycast hit.
+    /// </summary>
     private void HandleJumping()
     {
         //handles jumping
@@ -193,7 +246,7 @@ public class PlayerController : MonoBehaviour
 
             //if the raycast returns true then an object has been hit and the player is touching the floor
             //for raycast (startPosition, RayDirection, output the object hit, maximumDistanceForTheRaycastToFire
-            if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.5f))
+            if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.1f))
             {
                 Debug.Log("Touching the ground");
                 //adds an upwards velocity to the player object causing the player to jump
@@ -206,6 +259,10 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
+    /// <summary>
+    /// Rotates Samus depending on how she's facing.
+    /// </summary>
     private void Turning()
     {
         if (goingLeft == false)

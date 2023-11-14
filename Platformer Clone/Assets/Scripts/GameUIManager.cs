@@ -8,7 +8,7 @@ using TMPro;
 /*
  * Author: [Cunanan, Joshua / McGee, Patrick]
  * Last Updated: [10/31/2023]
- * [This controls the camera being locked onto the player]
+ * [This displays the health of the player on the screen during gameplay.]
  */
 
 public class GameUIManager : MonoBehaviour

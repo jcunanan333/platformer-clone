@@ -20,6 +20,9 @@ public class SmallBullet : MonoBehaviour
         Move();
     }
 
+    /// <summary>
+    /// Controls movement depending on the way the bullet is facing.
+    /// </summary>
     private void Move()
     {
         if (goingLeft)

@@ -21,6 +21,9 @@ public class HeavyBullet : MonoBehaviour
         Move();
     }
 
+    /// <summary>
+    /// Moves the bullet depending on the goingLeft bool.
+    /// </summary>
     private void Move()
     {
         if (goingLeft)

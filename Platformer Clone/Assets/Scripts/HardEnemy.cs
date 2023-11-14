@@ -42,14 +42,22 @@ public class HardEnemy : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Causes the enemy to die at 0 hitPoints and increases the variable on samus for the number of dead enemies on the final level.
+    /// </summary>
     private void Die()
     {
         if (hitPoints <= 0)
         {
             gameObject.SetActive(false);
+            GameObject player = GameObject.Find("Samus");
+            player.GetComponent<PlayerController>().IncreaseFinalEnemiesKilled();
         }
     }
 
+    /// <summary>
+    /// Controls enemy movement relative to the player.
+    /// </summary>
     private void Move()
     {
         if (followTarget.transform.position.x <= transform.position.x)

@@ -49,6 +49,9 @@ public class RegularEnemy : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Moves the enemy between two points.
+    /// </summary>
     private void Move()
     {
         if (goingLeft)
@@ -74,11 +77,17 @@ public class RegularEnemy : MonoBehaviour
             }
         }
     }
+
+    /// <summary>
+    /// Sets the enemy to inactive if hitpoints drop to 0 or below.
+    /// </summary>
     private void Die()
     {
         if (hitPoints <= 0)
         {
             gameObject.SetActive(false);
+            GameObject player = GameObject.Find("Samus");
+            player.GetComponent<PlayerController>().IncreaseFinalEnemiesKilled();
         }
     }
 
